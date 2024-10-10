@@ -1,0 +1,14 @@
+---
+#Used with networking workshop
+- name: Router Hostname Demo
+  hosts: cisco
+  gather_facts: no
+  vars:
+    custom_hostname: basic
+
+  tasks:
+
+    - name: Change Router Hostname
+      cisco.ios.config:
+        commands:
+          -  hostname {{ inventory_hostname }}-{{ custom_hostname }}
